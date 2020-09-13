@@ -1,7 +1,7 @@
 {
     "name": "tyteck/siret",
     "description": "This package is technically validating siret number.",
-    "version": "1.0.0-dev",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
