@@ -1,0 +1,27 @@
+{
+    "name": "tyteck/siret",
+    "description": "This package is technically validating siret number.",
+    "version": "1.0.0-dev",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "frederick tyteca",
+            "email": "frederick@tyteca.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Tyteck\\Siret\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tyteck\\Siret\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    }
+}
