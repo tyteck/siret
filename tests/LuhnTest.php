@@ -26,7 +26,7 @@ class LuhnTest extends TestCase
         foreach ($validLuhnNumbers as $luhnNumber) {
             $this->assertTrue(
                 Luhn::isValid($luhnNumber),
-                "Siret number ($luhnNumber) should be valid"
+                "Luhn number ($luhnNumber) should be valid"
             );
         }
     }
@@ -43,6 +43,7 @@ class LuhnTest extends TestCase
         foreach ($invalidLuhnNumbers as $luhnNumber) {
             $this->assertFalse(
                 Luhn::isValid($luhnNumber),
+                "Luhn number ($luhnNumber) should not be valid"
             );
         }
     }
