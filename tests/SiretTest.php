@@ -39,6 +39,7 @@ class SiretTest extends TestCase
         foreach ($invalidSiretNumbers as $siretNumber) {
             $this->assertFalse(
                 Siret::isValid($siretNumber),
+                "Siret number ($siretNumber) should not be valid"
             );
         }
     }
