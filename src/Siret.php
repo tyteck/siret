@@ -6,14 +6,17 @@ class Siret
 {
     public const SIRET_LENGTH = 14;
 
+    /**
+     * removing spaces from string.
+     */
+    public static function clean(string $siretNumber)
+    {
+        return preg_replace('/\s+/', '', $siretNumber);
+    }
+
     public static function isValid(string $siretNumber): bool
     {
-        $siretNumber = trim($siretNumber);
-
-        /**
-         * removing spaces
-         */
-        $siretNumber = preg_replace('/\s+/', '', $siretNumber);
+        $siretNumber = self::clean($siretNumber);
 
         if (strlen($siretNumber) !== self::SIRET_LENGTH) {
             return false;
