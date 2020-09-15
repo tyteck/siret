@@ -47,4 +47,12 @@ class LuhnTest extends TestCase
             );
         }
     }
+
+    public function testingCreateShouldReturnValidLuhnNumber()
+    {
+        var_dump(Luhn::create(14));
+        $this->assertTrue(
+            Luhn::isValid(Luhn::create(14))
+        );
+    }
 }
