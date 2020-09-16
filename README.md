@@ -8,8 +8,7 @@
 </div>
 
 ## Description
-During one of my project I figured out that no package was available to check if one 
-Siret number was valid. This package will do so.
+Small package to validate siret number.
 
 ## Installation
 If you use composer you can simply run 
