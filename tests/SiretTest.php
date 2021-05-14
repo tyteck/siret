@@ -7,7 +7,6 @@ use Tyteck\Siret\Siret;
 
 class SiretTest extends TestCase
 {
-
     public function testThoseSiretShouldBeValid()
     {
         $validSiretNumbers = [
@@ -17,6 +16,7 @@ class SiretTest extends TestCase
             '519 464 267 00011',
             ' 418 096 392 03087 ',
             '333 344 000 00109',
+            '35600000049837',
         ];
 
         foreach ($validSiretNumbers as $siretNumber) {
@@ -30,10 +30,11 @@ class SiretTest extends TestCase
     public function testThoseSiretShouldBeInvalid()
     {
         $invalidSiretNumbers = [
-            'abcdefghijklmn', // string 
+            'abcdefghijklmn', // string
             '1234', // too short
             '1234 4567 8901 234', //too long
             '12345678901234', // dumb
+            '35600000049838', // la poste false
         ];
 
         foreach ($invalidSiretNumbers as $siretNumber) {

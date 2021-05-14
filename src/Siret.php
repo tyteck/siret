@@ -5,6 +5,7 @@ namespace Tyteck\Siret;
 class Siret
 {
     public const SIRET_LENGTH = 14;
+    public const LAPOSTE_PREFIX = '356000000';
 
     /**
      * removing spaces from string.
@@ -21,14 +22,18 @@ class Siret
         if (strlen($siretNumber) !== self::SIRET_LENGTH) {
             return false;
         }
-
-        if (is_numeric($siretNumber)) {
-            return Luhn::isValid((int)$siretNumber);
+        
+        /**
+         * La Poste french siret is a specific use case.
+         * cf https://blog.pagesd.info/2012/09/05/verifier-numero-siret-poste/
+         */
+        if (preg_match('/^'.self::LAPOSTE_PREFIX.'[0-9]*/', $siretNumber, $matches)) {
+            $sum = array_reduce(str_split($siretNumber), function ($carry, $digit) {
+                return $carry+=$digit;
+            });
+            return $sum % 5 === 0;
         }
 
-        /**
-         * some like "la poste" or monaco's siret does not comply to this.
-         */
-        return false;
+        return is_numeric($siretNumber) && Luhn::isValid((int)$siretNumber);
     }
 }
